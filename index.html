@@ -1,71 +1,138 @@
-<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Component.collection list-view-scroll by typesettin</title>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Component.collection list-view-scroll</h1>
-        <p>An on scroll effect template that animates the sides of sections once they are in the viewport</p>
+<head>
+  <title>List View Scroll Test</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width,  minimal-ui">
+  <link rel="stylesheet" type="text/css" href="stylesheets/component.collection_list-view-scroll.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/example.css" />
+  <script src="js/example.min.js"></script>
+  <script src="//localhost:35729/livereload.js"></script>
+  <script>
+  var listViewScroller1;
+  window.addEventListener('load', function() {
+    listViewScroller1 = new window.ListViewScroll({
+      viewportFactor: 0.2,
+      idSelector: 'list-view-scroll',
+      initClass: 'list-view-scroll-init',
+      animateClass: 'list-view-scroll-animate',
+      sectionClass: 'list-view-scroll-section',
+      useWindowAsParent: true
+    });
+    listViewScroller1.on('sectionInView', function(index) {
+      console.log('sectionInView', index);
+    });
+  }, false);
+  </script>
+</head>
 
-        <p class="view"><a href="https://github.com/typesettin/component.collection_list-view-scroll">View the Project on GitHub <small>typesettin/component.collection_list-view-scroll</small></a></p>
+<body>
 
+  <div id="scrollerhtml" class="list-view-scroll-container" style="/*height:600px; overflow:scroll;*/">
 
-        <ul>
-          <li><a href="https://github.com/typesettin/component.collection_list-view-scroll/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/typesettin/component.collection_list-view-scroll/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/typesettin/component.collection_list-view-scroll">View On <strong>GitHub</strong></a></li>
-        </ul>
+    <div id="list-view-scroll" class="list-view-scroll">
+      <header>Best Slideshow Ever, see <a href="/api/doc/html/">API DOCS</a>
       </header>
-      <section>
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+      <section id="list-view-scroll-section-0" class="list-view-scroll-section list-view-scroll">
+        <article class="list-view-scroll-side-item list-view-scroll-side-left">
+          <h2>Travel &amp; Leisure Transporter</h2>
+          <p class="small">Upgrade your next warm-weather escape with a stay at one of these top-ranked beach hotels, according to T+L readers.</p>
+          <p></p>
+          <div class="article-meta">
+            <time>March 6, 2013</time>
+            <small>Ann Sheilds</small>
+            <small>The best beaches in the world</small>
+          </div>
+          <p>How to explain the difference a beachfront hotel makes? “More than unobstructed views, it’s about the freedom of not having to look both ways to cross the street before feeling sand between your toes,” says Matt Thomson, founder of <a title="Wavecation.com" href="http://www.wavecation.com" target="_blank">Wavecation.com</a>, a surfing-focused vacation rental company.</p>
+        </article>
+        <figure class="list-view-scroll-side-item list-view-scroll-side-right">
+          <img src="http://dummyimage.com/600x400/000/fff">
+        </figure>
       </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/typesettin">typesettin</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+
+      <section id="list-view-scroll-section-1" class="list-view-scroll-section list-view-scroll">
+        <figure class="list-view-scroll-side-item list-view-scroll-side-left">
+          <img src="http://dummyimage.com/600x400/000/fff">
+        </figure>
+        <article class="list-view-scroll-side-item list-view-scroll-side-right">
+          <h2>No. 1 Southern Ocean Lodge, Kangaroo Island, Australia</h2>
+          <p class="small">Contemporary in design and green in attitude, this lodge sits on a wildlife-rich island 30 minutes from Adelaide.</p>
+          <p></p>
+          <div class="article-meta">
+            <time>March 7, 2013</time>
+            <small>Ann Sheilds</small>
+            <small>The best beaches in the world</small>
+          </div>
+          <p>Contemporary in design and green in attitude, this lodge sits on a wildlife-rich island 30 minutes from Adelaide. Each of the 21 suites offers limestone floors, an outdoor terrace, and works by local artisans. (Air-conditioning is unnecessary; the property was constructed to take advantage of natural weather patterns.) For a spectacular ocean view from a hand-carved granite bath, book the glass-walled Osprey Pavilion suite, which also features a private plunge spa and sunken lounge.</p>
+        </article>
+      </section>
+
+      <section id="list-view-scroll-section-2" class="list-view-scroll-section list-view-scroll">
+        <article class="list-view-scroll-side-item list-view-scroll-side-left">
+          <h2>No. 2 Discovery Shores Boracay, Boracay, Philippines'</h2>
+          <p class="small">Upgrade your next warm-weather escape with a stay at one of these top-ranked beach hotels, according to T+L readers.</p>
+          <p></p>
+          <div class="article-meta">
+            <time>March 6, 2013</time>
+            <small>Ann Sheilds</small>
+            <small>The best beaches in the world</small>
+          </div>
+          <p>The 2 1/2-mile stretch known as White Beach is often singled out for having the softest sand in the world—and it’s the setting for this resort and its 88 suites (some with private Jacuzzis). The water’s fine, whether you want to take a dip in the infinity pool or Jet Ski on the Sibuyan Sea. For people-watching, head to the Sandbar, where bartenders stir up lychee- and mango-infused mojitos.</p>
+        </article>
+        <figure class="list-view-scroll-side-item list-view-scroll-side-right">
+          <img src="http://dummyimage.com/600x400/000/fff">
+        </figure>
+      </section>
+
+      <section id="list-view-scroll-section-3" class="list-view-scroll-section list-view-scroll">
+        <figure class="list-view-scroll-side-item list-view-scroll-side-left">
+          <img src="http://dummyimage.com/600x400/000/fff">
+        </figure>
+        <article class="list-view-scroll-side-item list-view-scroll-side-right">
+          <h2>No. 3 Lizard Island Resort, Great Barrier Reef, Australia</h2>
+          <p class="small">Upgrade your next warm-weather escape with a stay at one of these top-ranked beach hotels, according to T+L readers.</p>
+          <p></p>
+          <div class="article-meta">
+            <time>March 6, 2013</time>
+            <small>Ann Sheilds</small>
+            <small>The best beaches in the world</small>
+          </div>
+          <p>With 24 beaches fringing the Great Barrier Reef and accommodations for just 40 couples, Lizard Island is in a category all its own. Open-plan suites are done in royal blue, turquoise, and stark white to mimic the Coral Sea below, with hammocks and decks discreetly hidden from view. Count on sunset cruises, torchlit beach dinners, and complimentary gourmet picnic baskets. Book an Anchor Bay Suite for a direct pathway to the beach and daybed sunbathing from a personal veranda.</p>
+        </article>
+      </section>
+
+      <section id="list-view-scroll-section-4" class="list-view-scroll-section list-view-scroll">
+        <article class="list-view-scroll-side-item list-view-scroll-side-left">
+          <h2>No. 4 Hotel Santa Caterina, Amalfi, Italy</h2>
+          <p class="small">Upgrade your next warm-weather escape with a stay at one of these top-ranked beach hotels, according to T+L readers.</p>
+          <p></p>
+          <div class="article-meta">
+            <time>March 6, 2013</time>
+            <small>Ann Sheilds</small>
+            <small>The best beaches in the world</small>
+          </div>
+          <p>Now in its fourth generation of Gambardella family management, this 1904 looker still reigns in Belle Époque splendor. Rooms are spread across the main building, two villas, and a triplet of honeymoon cottages and decorated with local antiques. An elevator descends to a private beach, saltwater pool, fitness center, and thatched-roof pizzeria and fish grill. As you stroll through the secluded terraced gardens and citrus orchards, it’s obvious why Liz Taylor and Richard Burton chose to hide out here.</p>
+        </article>
+        <figure class="list-view-scroll-side-item list-view-scroll-side-right">
+          <img src="http://dummyimage.com/600x400/000/fff">
+        </figure>
+      </section>
+
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
-  </body>
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52892914-5', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+
 </html>
