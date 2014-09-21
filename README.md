@@ -15,25 +15,25 @@ Check out `example/index.html`, the example javascript for the example page is `
 ## Installation
 
 ```
-$ npm install linotypejs
+$ npm install periodicjs.component.collection_list-view-scroll
 ```
 
-The full page scroll component is a browserify javascript module.
+The scroll component is a browserify/commonjs javascript module.
 
 
 ## Usage
 
 *JavaScript*
 ```javascript
-var LinotypeObject = require('linotypejs'),
-	myLinotype;
+var ListViewScrollObject = require('periodicjs.component.collection_list-view-scroll'),
+	listViewScroller1;
 //initialize linotype component after the dom has loaded
 window.addEventListener('load',function(){
-	myLinotype = new LinotypeObject({
-		idSelector: 'linotype'
+	listViewScroller1 = new ListViewScrollObject({
+		idSelector: 'list-view-scroll'
 	});
 	//expose your nav component to the window global namespace
-	window.myLinotype = myLinotype;
+	window.listViewScroller1 = listViewScroller1;
 });
 ```
 
@@ -42,37 +42,54 @@ window.addEventListener('load',function(){
 <html>
 	<head>
   	<title>Your Page</title>
-  	<link rel="stylesheet" type="text/css" href="[path/to]/component.collection-linotype.css">
+  	<link rel="stylesheet" type="text/css" href="[path/to]/component.collection_list-view-scroll.css">
   	<script src='[path/to/browserify/bundle].js'></script>
 	</head>
 	<body>
-    <div id="linotype" class="linotype">
-    	<div class="section active">
-		    <h1>Page One </h1>
+    <div id="list-view-scroll" class="list-view-scroll">
+    	<section class="list-view-scroll-section">
+      	<article class="list-view-scroll-side-item list-view-scroll-side-left">
+      	<h1>Page One </h1>
 		    <p>the basic structure, require a linotype class (for css) and sections for each fullpage section</p>
-		  </div>
-		  <div class="section">
+				</article>
+        <figure class="list-view-scroll-side-item list-view-scroll-side-right">
+          <img src="http://dummyimage.com/600x400/000/fff">
+        </figure>
+		  </section>
+		  <section class="list-view-scroll-section">
+        <figure class="list-view-scroll-side-item list-view-scroll-side-left">
+          <img src="http://dummyimage.com/600x400/000/fff">
+        </figure>
+      	<article class="list-view-scroll-side-item list-view-scroll-side-right">
 		    <h1>Page Two </h1>
 		    <p>Any html content can go here</p>
-		  </div>
-		  <div class="section">
-		    <h1>Page Three </h1>
-		    <p>Keyboard, MouseWheel and Touch Support</p>
-		  </div>
-		  <div class="section">
-		    <h1>Page Four </h1>
-		  </div>
+				</article>
+		  </section>
+    	<section class="list-view-scroll-section">
+      	<article class="list-view-scroll-side-item list-view-scroll-side-left">
+      	<h1>Page One </h1>
+		    <p>the basic structure, require a linotype class (for css) and sections for each fullpage section</p>
+				</article>
+        <figure class="list-view-scroll-side-item list-view-scroll-side-right">
+          <img src="http://dummyimage.com/600x400/000/fff">
+        </figure>
+		  </section>
+		  <section class="list-view-scroll-section">
+        <figure class="list-view-scroll-side-item list-view-scroll-side-left">
+          <img src="http://dummyimage.com/600x400/000/fff">
+        </figure>
+      	<article class="list-view-scroll-side-item list-view-scroll-side-right">
+		    <h1>Page Two </h1>
+		    <p>Any html content can go here</p>
+				</article>
+		  </section>
 	</body>
 </html>
 ```
 
 ##API
 
-```javascript
-myLinotype.section(1); //jump to section 1
-```
-
-###[*FULL API DOCUMENTATION*](https://github.com/typesettin/component.collection-linotype/blob/master/doc/api.md)
+###[*FULL API DOCUMENTATION*](https://github.com/typesettin/component.collection_list-view-scroll/blob/master/doc/api.md)
 
 ##Development
 *Make sure you have grunt installed*
