@@ -44,50 +44,69 @@
         <article><h1>component.collection_list-view-scroll <a href="https://travis-ci.org/typesettin/component.collection_list-view-scroll"><img src="https://travis-ci.org/typesettin/component.collection_list-view-scroll.svg?branch=master" alt="Build Status"></a> <a href="http://badge.fury.io/js/component.collection_list-view-scroll"><img src="https://badge.fury.io/js/component.collection_list-view-scroll.svg" alt="NPM version"></a></h1><h1>component.collection_list-view-scroll</h1><p>An on scroll effect template that animates the sides of sections once they are in the viewport</p>
 <h2>Example</h2><p>Check out <code>example/index.html</code>, the example javascript for the example page is <code>resources/js/example_src.js</code> and in the head section of the example. Full non-js graceful fallback.</p>
 <p><a href="http://typesettin.github.io/component.collection_list-view-scroll">Live Demo - http://typesettin.github.io/component.collection_list-view-scroll</a></p>
-<h2>Installation</h2><pre><code>$ npm install linotypejs
-</code></pre><p>The full page scroll component is a browserify javascript module.</p>
+<h2>Installation</h2><pre><code>$ npm install periodicjs.component.collection_list-view-scroll
+</code></pre><p>The scroll component is a browserify/commonjs javascript module.</p>
 <h2>Usage</h2><p><em>JavaScript</em></p>
-<pre><code class="lang-javascript">var LinotypeObject = require('linotypejs'),
-    myLinotype;
+<pre><code class="lang-javascript">var ListViewScrollObject = require('periodicjs.component.collection_list-view-scroll'),
+    listViewScroller1;
 //initialize linotype component after the dom has loaded
 window.addEventListener('load',function(){
-    myLinotype = new LinotypeObject({
-        idSelector: 'linotype'
+    listViewScroller1 = new ListViewScrollObject({
+        idSelector: 'list-view-scroll'
     });
     //expose your nav component to the window global namespace
-    window.myLinotype = myLinotype;
+    window.listViewScroller1 = listViewScroller1;
 });
 </code></pre>
 <p><em>HTML</em></p>
 <pre><code class="lang-html">&lt;html&gt;
     &lt;head&gt;
       &lt;title&gt;Your Page&lt;/title&gt;
-      &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;[path/to]/component.collection-linotype.css&quot;&gt;
+      &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;[path/to]/component.collection_list-view-scroll.css&quot;&gt;
       &lt;script src='[path/to/browserify/bundle].js'&gt;&lt;/script&gt;
     &lt;/head&gt;
     &lt;body&gt;
-    &lt;div id=&quot;linotype&quot; class=&quot;linotype&quot;&gt;
-        &lt;div class=&quot;section active&quot;&gt;
-            &lt;h1&gt;Page One &lt;/h1&gt;
+    &lt;div id=&quot;list-view-scroll&quot; class=&quot;list-view-scroll&quot;&gt;
+        &lt;section class=&quot;list-view-scroll-section&quot;&gt;
+          &lt;article class=&quot;list-view-scroll-side-item list-view-scroll-side-left&quot;&gt;
+          &lt;h1&gt;Page One &lt;/h1&gt;
             &lt;p&gt;the basic structure, require a linotype class (for css) and sections for each fullpage section&lt;/p&gt;
-          &lt;/div&gt;
-          &lt;div class=&quot;section&quot;&gt;
+                &lt;/article&gt;
+        &lt;figure class=&quot;list-view-scroll-side-item list-view-scroll-side-right&quot;&gt;
+          &lt;img src=&quot;http://dummyimage.com/600x400/000/fff&quot;&gt;
+        &lt;/figure&gt;
+          &lt;/section&gt;
+          &lt;section class=&quot;list-view-scroll-section&quot;&gt;
+        &lt;figure class=&quot;list-view-scroll-side-item list-view-scroll-side-left&quot;&gt;
+          &lt;img src=&quot;http://dummyimage.com/600x400/000/fff&quot;&gt;
+        &lt;/figure&gt;
+          &lt;article class=&quot;list-view-scroll-side-item list-view-scroll-side-right&quot;&gt;
             &lt;h1&gt;Page Two &lt;/h1&gt;
             &lt;p&gt;Any html content can go here&lt;/p&gt;
-          &lt;/div&gt;
-          &lt;div class=&quot;section&quot;&gt;
-            &lt;h1&gt;Page Three &lt;/h1&gt;
-            &lt;p&gt;Keyboard, MouseWheel and Touch Support&lt;/p&gt;
-          &lt;/div&gt;
-          &lt;div class=&quot;section&quot;&gt;
-            &lt;h1&gt;Page Four &lt;/h1&gt;
-          &lt;/div&gt;
+                &lt;/article&gt;
+          &lt;/section&gt;
+        &lt;section class=&quot;list-view-scroll-section&quot;&gt;
+          &lt;article class=&quot;list-view-scroll-side-item list-view-scroll-side-left&quot;&gt;
+          &lt;h1&gt;Page One &lt;/h1&gt;
+            &lt;p&gt;the basic structure, require a linotype class (for css) and sections for each fullpage section&lt;/p&gt;
+                &lt;/article&gt;
+        &lt;figure class=&quot;list-view-scroll-side-item list-view-scroll-side-right&quot;&gt;
+          &lt;img src=&quot;http://dummyimage.com/600x400/000/fff&quot;&gt;
+        &lt;/figure&gt;
+          &lt;/section&gt;
+          &lt;section class=&quot;list-view-scroll-section&quot;&gt;
+        &lt;figure class=&quot;list-view-scroll-side-item list-view-scroll-side-left&quot;&gt;
+          &lt;img src=&quot;http://dummyimage.com/600x400/000/fff&quot;&gt;
+        &lt;/figure&gt;
+          &lt;article class=&quot;list-view-scroll-side-item list-view-scroll-side-right&quot;&gt;
+            &lt;h1&gt;Page Two &lt;/h1&gt;
+            &lt;p&gt;Any html content can go here&lt;/p&gt;
+                &lt;/article&gt;
+          &lt;/section&gt;
     &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<h2>API</h2><pre><code class="lang-javascript">myLinotype.section(1); //jump to section 1
-</code></pre>
-<h3><a href="https://github.com/typesettin/component.collection-linotype/blob/master/doc/api.md"><em>FULL API DOCUMENTATION</em></a></h3><h2>Development</h2><p><em>Make sure you have grunt installed</em></p>
+<h2>API</h2><h3><a href="https://github.com/typesettin/component.collection_list-view-scroll/blob/master/doc/api.md"><em>FULL API DOCUMENTATION</em></a></h3><h2>Development</h2><p><em>Make sure you have grunt installed</em></p>
 <pre><code>$ npm install -g grunt-cli
 </code></pre><p>Then run grunt watch</p>
 <pre><code>$ grunt watch
@@ -111,7 +130,7 @@ window.addEventListener('load',function(){
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha5</a> on Sun Sep 21 2014 19:14:15 GMT-0400 (EDT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha5</a> on Sun Sep 21 2014 19:20:49 GMT-0400 (EDT)
 </footer>
 
 <script> prettyPrint(); </script>
