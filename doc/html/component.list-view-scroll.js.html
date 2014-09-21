@@ -1,4 +1,31 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: component.list-view-scroll.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: component.list-view-scroll.js</h1>
+
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * @title list view scroll
  * @{@link https://github.com/typesettin/component.collection_list-view-scroll}
  * @author Yaw Joseph Etse
@@ -39,7 +66,6 @@ var listViewScroll = function (options) {
 		initClass: 'list-view-scroll-init',
 		animateClass: 'list-view-scroll-animate',
 		sectionClass: 'list-view-scroll-section',
-		useWindowAsParent: true,
 		el: null,
 		sections: null
 	};
@@ -64,7 +90,7 @@ listViewScroll.prototype.initEventListeners = function () {
 			this.didScroll = true;
 			setTimeout(function () {
 				this._scrollPage(this.options);
-			}.bind(this), 60);
+			}, 60);
 		}
 	}.bind(this);
 
@@ -84,9 +110,8 @@ listViewScroll.prototype.initEventListeners = function () {
 		}
 	}.bind(this);
 
-	if (typeof window === 'object' && typeof window.document === 'object') {
-		console.log("this.options.parentElement", this.options.parentElement)
-		this.options.parentElement.addEventListener('scroll', scrollHandler, false);
+	if (typeof window === 'object' &amp;&amp; typeof window.document === 'object') {
+		window.addEventListener('scroll', scrollHandler, false);
 		window.addEventListener('resize', resizeHandler, false);
 	}
 };
@@ -98,9 +123,7 @@ listViewScroll.prototype.init = function (options) {
 	this.options.el = document.getElementById(options.idSelector);
 	this.options.sections = this.options.el.getElementsByClassName(options.sectionClass);
 
-	this.options.parentElement = (this.options.useWindowAsParent) ? (window || docElem) : this.options.el.parentElement;
-
-	if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+	if (('ontouchstart' in window) || window.DocumentTouch &amp;&amp; document instanceof DocumentTouch) {
 		// console.log('has touch');
 		return;
 	}
@@ -115,7 +138,7 @@ listViewScroll.prototype.init = function (options) {
 listViewScroll.prototype._getViewportH = function () {
 	var client = docElem.clientHeight,
 		inner = window.innerHeight;
-	if (client > inner) {
+	if (client &lt; inner) {
 		return inner;
 	}
 	else {
@@ -126,7 +149,7 @@ listViewScroll.prototype._getViewportH = function () {
  * get the scroll position of the viewport element
  */
 listViewScroll.prototype._scrollY = function () {
-	return this.options.parentElement.scrollTop || this.options.parentElement.pageYOffset;
+	return window.pageYOffset || docElem.scrollTop;
 };
 
 /**
@@ -171,7 +194,7 @@ listViewScroll.prototype._inViewport = function (el, h) {
 	// value in percentage (1 >= h >= 0)
 	h = h || 0;
 
-	return (elTop + elH * h) <= viewed && (elBottom) >= scrolled;
+	return (elTop + elH * h) &lt;= viewed &amp;&amp; (elBottom) >= scrolled;
 };
 
 /**
@@ -181,17 +204,17 @@ listViewScroll.prototype._inViewport = function (el, h) {
  */
 listViewScroll.prototype._scrollPage = function () {
 	for (var x in this.options.sections) {
-		if ((typeof this.options.sections[x] === 'object') && this._inViewport(this.options.sections[x], this.options.viewportFactor)) {
+		if (this._inViewport(this.options.sections[x], this.options.viewportFactor) &amp;&amp; (typeof this.options.sections[x] === 'object')) {
 			classie.add(this.options.sections[x], this.options.animateClass);
 			this.emit('sectionInView', x);
 		}
-		else if (typeof this.options.sections[x] === 'object') {
+		else {
 			// this add class init if it doesn't have it. This will ensure that the items initially in the viewport will also animate on scroll
-			classie.add(this.options.sections[x], this.options.initClass);
-			if (this.options.parentElement.scrollTop !== 0) {
+			if (typeof this.options.sections[x] === 'object') {
+				classie.add(this.options.sections[x], this.options.initClass);
 				classie.remove(this.options.sections[x], this.options.animateClass);
+				this.emit('sectionOutView', x);
 			}
-			this.emit('sectionOutView', x);
 		}
 	}
 
@@ -202,6 +225,29 @@ module.exports = listViewScroll;
 
 // If there is a window object, that at least has a document property,
 // define Linotype
-if (typeof window === 'object' && typeof window.document === 'object') {
+if (typeof window === 'object' &amp;&amp; typeof window.document === 'object') {
 	window.listViewScroll = listViewScroll;
 }
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="listViewScroll.html">listViewScroll</a></li></ul><h3>Events</h3><ul><li><a href="global.html#event:touchStartHandler">touchStartHandler</a></li></ul><h3>Global</h3><ul><li><a href="global.html#options">options</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha5</a> on Sun Sep 21 2014 18:03:50 GMT-0400 (EDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

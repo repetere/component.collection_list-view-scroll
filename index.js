@@ -1,8 +1,9 @@
 /*
  * component.list-view-scroll
- * http://github.amexpub.com/modules/component.list-view-scroll
+ * https://github.com/typesettin/component.collection_list-view-scroll
  *
- * Copyright (c) 2013 AmexPub. All rights reserved.
+ * Copyright (c) 2014 typesettin. All rights reserved.
  */
+'use strict';
 
 module.exports = require('./lib/component.list-view-scroll');

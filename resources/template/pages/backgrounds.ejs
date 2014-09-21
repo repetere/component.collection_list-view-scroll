@@ -1,0 +1,29 @@
+<html>
+
+<head>
+  <% var title="basic usage" %>
+    <% include ../shared/_head_elements %>
+
+      <script>
+      var LinotypeExample;
+      window.addEventListener('load', function() {
+        LinotypeExample = new Linotype({
+          easing: true
+        });
+        LinotypeExample.on('init', function(data) {
+          console.log('init linotype', data);
+        });
+        LinotypeExample.on('emittest', function(data) {
+          console.log('init emittest', data);
+        });
+      }, false);
+      </script>
+</head>
+
+<body id="demo-backgrounds">
+  <% include ../shared/_home_button %>
+    <% include ../shared/_democontent %>
+      <% include ../shared/_footer_google %>
+</body>
+
+</html>
